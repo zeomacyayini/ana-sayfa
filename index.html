@@ -6,36 +6,80 @@
 <meta content='Zeo Maç Yayını' name='Creator'/>
 <meta content='Zeo Maç Yayını' name='Publısher'/>
 <meta content='Tün Hakları Saklıdır' name='Copyrıght'/>	
+
 	
-<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
-<link type="text/css" href="js/basic.css" rel="stylesheet" media="screen" />
-<!--[if lt IE 7]>
-<link type="text/css" href="js/basic_ie.css" rel="stylesheet" media="screen" />
-<![endif]-->
-<link type="text/css" href="js/gg_fb.css" rel="stylesheet" media="screen" />
-<script type="text/javascript" src="js/jquery.simplemodal.1.4.1.min.js"></script>
+/* Popup (arka plan) */
+.modal {
+    display: none; /* Varsayılan olarak gizlidir */
+    position: fixed; /* Yerinde kal */
+    z-index: 1; /* Üstte */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ful Genişlik */
+    height: 100%; /* Ful Yükseklik */
+    overflow: auto; /* Gerekirse kaydırmayı etkinleştir */
+    background-color: rgb(0,0,0); /* Yedek renk */
+    background-color: rgba(0,0,0,0.4); /* Siyah w / opaklık */
+}
+/* İçerik / Kutu */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* % 15 üstten ve ortalanmış */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ekran boyutuna bağlı olarak daha fazla veya daha az olabilir */
+}
+/* Kapat Düğmesi */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+	
+
+<script>
+	// Popup Al
+var modal = document.getElementById('myModal');
+// Kipi açan düğmeyi al
+var btn = document.getElementById("myBtn");
+// Kipi kapatan <span> öğesini edinin
+var span = document.getElementsByClassName("close")[0];
+// Kullanıcı düğmeyi tıklattığında
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+// Kullanıcı <span> (x) düğmesini tıkladığında, popup
+span.onclick = function() {
+    modal.style.display = "none";
+}
+// Kullanıcı modelden başka herhangi bir yeri tıklattıysa, onu kapatın.
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+</script>
+	
 	
 </head>
 <body>
 
-<script type="text/javascript">
-if(GetCookie('cerez') !== 'milat' )
-{
-jQuery(document).ready( function() {  // sayfa yüklenince popup açması gerektiğini söyledik
-jQuery('.gg-fb').modal({minWidth:"600", overlayClose: true , escClose : false });
-// Açılacak en küçük genişliğin 600px olacağını ve 'gg-fb' divini açmasını belirttik
-// Siyah alana tıklayınca kapanmasın diyorsak overlayClose : false yapmalıyız.Açmak ifin true olmalı
-// Esc tuşuna basınca kapanmasın diyorsak escClose : false yapmalıyız.Açmak ifin true olmalı
-SetCookie('cerez','milat',1);   // cerez oluşturduk her ziyaretçiye bir kere açılması için
-});
-}
-</script>
-<div style="display: none;">
-<div class="gg-fb"><img src="js/yorum_yaz.png" alt="" width="600" height="320" />
-</div>
-</div>
 	
+<button id="myBtn">Open Modal</button>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+</div>
 
+	
 <br />
 <center><h1>YAYIN SADECE GOOGLE CHROME İLE ÇALIŞMAKTADIR</h1><center>
 <center>
