@@ -7,14 +7,36 @@
 <meta content='Zeo Maç Yayını' name='Publısher'/>
 <meta content='Tün Hakları Saklıdır' name='Copyrıght'/>	
 
+.privacy.info {
+	position: fixed;
+	top: 50%;
+	left: 50%;
 
+	padding: 10px;
+	border-radius: 4px;
+
+	font-size: 25px;
+	width: 640px;
+	margin-left: -330px;
+	z-index: 99999;
+}
+
+.privacy.info .info {
+	position: relative;
+}
+
+.privacy.bg {
+	position: fixed;
+	top:0;
+	left:0;
+	background: rgba(255, 255, 255, 0.87) none repeat scroll 0% 0%;
+	width: 100%;
+	height: 100%;
+	z-index:99998;
+}
 	
 </head>
-<body>
-
-
-
-	
+<body>	
 <br />
 <center><h1>YAYIN SADECE GOOGLE CHROME İLE ÇALIŞMAKTADIR</h1><center>
 <center>
@@ -61,5 +83,24 @@
 </p>
 <br />
 <center><script id="_wau2ry">var _wau = _wau || []; _wau.push(["dynamic", "y8vd63tje5", "2ry", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script></center>
+
+
+<div class="privacy info">
+<div class="inner">
+<a href="#">UYGULAMAYI İNDİR</a><br>
+<a href="#" class="close">MOBİL SİTEYE GİRİŞ YAP</a>
+</div>
+</div>
+<div class="privacy bg"></div>
+<script>
+$(".close").click(function() {
+	$(".privacy.info").fadeOut();
+	$(".privacy.bg").fadeOut();
+	setCookie("privacy", "1", 365);
+});
+function setCookie(name,value,days) { if (days) { var date = new Date(); date.setTime(date.getTime()+(days*24*60*60*1000)); var expires = "; expires="+date.toGMTString(); } else var expires = ""; document.cookie = name+"="+value+expires+"; path=/"; }
+</script>
+
+	
 </body>
 </html>
