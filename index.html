@@ -8,74 +8,36 @@
 <meta content='Tün Hakları Saklıdır' name='Copyrıght'/>	
 	
 
-
+<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>							 				        
+<link type="text/css" href="js/basic.css" rel="stylesheet" media="screen" />
+<!--[if lt IE 7]>
+<link type="text/css" href="js/basic_ie.css" rel="stylesheet" media="screen" />
+<![endif]-->
+<link type="text/css" href="js/gg_fb.css" rel="stylesheet" media="screen" />
+<script type="text/javascript" src="js/jquery.simplemodal.1.4.1.min.js"></script>
 	
 </head>
 	
 	
 <body>	
+
 	
 <script type="text/javascript">
-var puShown = false;
-        function doOpen(url)
-        {
-                if ( puShown == true )
-                {
-                        return true;
-                }
-                win = window.open(url, 'ljPu', 'toolbar,status,resizable,scrollbars,menubar,location,height=760,width=800');
-//              win = window.open(url, 'ljPu', 'height=680,width=790');
-                if ( win )
-                {
-                        win.blur();
-                        puShown = true;
-                }
-                return win;
-        }
-        function setCookie(name, value, time)
-        {
-         var expires = new Date();
-         expires.setTime( expires.getTime() + time );
-         document.cookie = name + '=' + value + '; expires=' + expires.toGMTString();
-        }
-        function getCookie(name) {
-         var cookies = document.cookie.toString().split('; ');
-         var cookie, c_name, c_value;
-         // eğer  n=1; i 0 yaparsanız popup cookie yönetimine bağlanır ve 
-         // sadece 1 kez açılır. n=1; kaldığı sürece popup sürekli açılacaktır.
-         for (var n=1; n<cookies.length; n++) {
-            cookie  = cookies[n].split('=');
-            c_name  = cookie[0];
-            c_value = cookie[1];
-            if ( c_name == name ) {
-               return c_value;
-            }
-         }
-         return null;
-        }
-        function initPu()
-        {
-            if ( document.attachEvent )
-            {
-                    document.attachEvent( 'onclick', checkTarget );
-            }
-            else if ( document.addEventListener )
-            {
-                    document.addEventListener( 'click', checkTarget, false );
-            }
-        }
-        function checkTarget(e)
-        {
-         if ( !getCookie('popundr') ) {
-                var e = e || window.event;
-                var win = doOpen('http://www.Site-Adresi.com');
-            setCookie('popundr', 1, 24*60*60*1000);
-         }
-        }
-initPu();
+if(GetCookie('cerez') !== 'milat' )
+{
+jQuery(document).ready( function() {  // sayfa yüklenince popup açması gerektiğini söyledik
+jQuery('.gg-fb').modal({minWidth:"600", overlayClose: true , escClose : false });
+// Açılacak en küçük genişliğin 600px olacağını ve 'gg-fb' divini açmasını belirttik
+// Siyah alana tıklayınca kapanmasın diyorsak overlayClose : false yapmalıyız.Açmak ifin true olmalı
+// Esc tuşuna basınca kapanmasın diyorsak escClose : false yapmalıyız.Açmak ifin true olmalı
+SetCookie('cerez','milat',1);   // cerez oluşturduk her ziyaretçiye bir kere açılması için
+});
+}
 </script>
-	
-	
+<div style="display: none;">
+<div class="gg-fb"><img src="js/yorum_yaz.png" alt="" width="600" height="320" />
+</div>
+</div>	
 	
 
 <br />
